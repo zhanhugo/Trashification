@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:hangman.xcodeproj">
+      location = "self:/Users/hugozhan/Downloads/proj1-skeleton/Hangman/Trashification.xcodeproj">
    </FileRef>
 </Workspace>
