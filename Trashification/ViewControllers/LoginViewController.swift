@@ -36,7 +36,20 @@ class LoginViewController: UIViewController {
             
         }
         
-    func getData(completion: @escaping () -> Void) {
+//    func fetchData(completion: @escaping (String) -> Void) {
+//                let db = Firestore.firestore()
+//                let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+//                docRef.getDocument{(document, error) in
+//                    guard let name = (document?.get("firstName") as? String) + (document?.get("firstName") as? String) else {
+//                        print("could not get name")
+//                        return
+//                    }
+//                    completion(name)
+//                }
+//            }
+//
+        
+    @IBAction func loginTapped(_ sender: Any) {
         // TODO: Validate Text Fields
 
         // Create cleaned versions of the text field
@@ -51,26 +64,13 @@ class LoginViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }
             else {
-                let db = Firestore.firestore()
                 userEmail = email
-                let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-                docRef.getDocument{(document, error) in
-                    if let document = document, document.exists {
-                        userName = document.get("firstName") as! String + (document.get("lastName") as! String)
-                    }
-                }
-            }
-            completion()
-        }
-    }
-        
-        
-    @IBAction func loginTapped(_ sender: Any) {
-        getData{
-            let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UserViewController
+            let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
             loggedIn = true
-            self.view.window?.rootViewController = homeViewController
+            self.view.window?.rootViewController = userViewController
             self.view.window?.makeKeyAndVisible()
-        }
+                
+            }
     }
+}
 }
