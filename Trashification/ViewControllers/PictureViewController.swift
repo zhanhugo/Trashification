@@ -23,7 +23,7 @@ class PictureViewController: UIViewController {
     }
       
     @IBAction func finishedButtonPressed(_ sender: Any) {
-        if (userEmail != "") {
+        if (loggedIn) {
             dismiss(animated: true, completion: nil)
         } else {
              let viewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.viewController) as? ViewController

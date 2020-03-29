@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: Any) {
         getData{
             let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? UserViewController
-            print(userName)
+            loggedIn = true
             self.view.window?.rootViewController = homeViewController
             self.view.window?.makeKeyAndVisible()
         }
