@@ -14,6 +14,8 @@
 		4248B99D23EF6DDE0022D0B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4248B99C23EF6DDE0022D0B1 /* Assets.xcassets */; };
 		4248B9A023EF6DDE0022D0B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4248B99E23EF6DDE0022D0B1 /* LaunchScreen.storyboard */; };
 		6DB4587D242FB2930009542B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB4587C242FB2930009542B /* ViewController.swift */; };
+		6DB4587F24306A580009542B /* WechatIMG61.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB4587E24306A570009542B /* WechatIMG61.png */; };
+		6DB4588124306BC40009542B /* WechatIMG62.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6DB4588024306BC40009542B /* WechatIMG62.jpeg */; };
 		6DC307F4242F7E1400A2ED6B /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC307F3242F7E1400A2ED6B /* PictureViewController.swift */; };
 		6DC307F6242F94BB00A2ED6B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC307F5242F94BB00A2ED6B /* SignUpViewController.swift */; };
 		6DC307F8242F94CB00A2ED6B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC307F7242F94CB00A2ED6B /* LoginViewController.swift */; };
@@ -36,6 +38,8 @@
 		4E2437DEE0C379697D49EE60 /* Pods-Trashification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trashification.release.xcconfig"; path = "Target Support Files/Pods-Trashification/Pods-Trashification.release.xcconfig"; sourceTree = "<group>"; };
 		6C3DF3AE159FC8B65FEB4992 /* Pods-Trashification.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trashification.debug.xcconfig"; path = "Target Support Files/Pods-Trashification/Pods-Trashification.debug.xcconfig"; sourceTree = "<group>"; };
 		6DB4587C242FB2930009542B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6DB4587E24306A570009542B /* WechatIMG61.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WechatIMG61.png; sourceTree = "<group>"; };
+		6DB4588024306BC40009542B /* WechatIMG62.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG62.jpeg; sourceTree = "<group>"; };
 		6DC307F3242F7E1400A2ED6B /* PictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		6DC307F5242F94BB00A2ED6B /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6DC307F7242F94CB00A2ED6B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -104,8 +108,10 @@
 				6DC307FA242F9DA200A2ED6B /* Helper */,
 				4248B9C723EF6E310022D0B1 /* ViewControllers */,
 				4248B99C23EF6DDE0022D0B1 /* Assets.xcassets */,
+				6DB4587E24306A570009542B /* WechatIMG61.png */,
 				4248B99E23EF6DDE0022D0B1 /* LaunchScreen.storyboard */,
 				4248B9A123EF6DDE0022D0B1 /* Info.plist */,
+				6DB4588024306BC40009542B /* WechatIMG62.jpeg */,
 				6DC307FD242F9FDF00A2ED6B /* GoogleService-Info.plist */,
 			);
 			path = Trashification;
@@ -189,7 +195,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4248B9A023EF6DDE0022D0B1 /* LaunchScreen.storyboard in Resources */,
+				6DB4587F24306A580009542B /* WechatIMG61.png in Resources */,
 				6DC307FE242F9FDF00A2ED6B /* GoogleService-Info.plist in Resources */,
+				6DB4588124306BC40009542B /* WechatIMG62.jpeg in Resources */,
 				4248B99D23EF6DDE0022D0B1 /* Assets.xcassets in Resources */,
 				4248B99B23EF6DDC0022D0B1 /* Main.storyboard in Resources */,
 			);
@@ -406,7 +414,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = sp2020;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hugo.trashified;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hugo.trashification;
 				PRODUCT_NAME = Trashification;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -427,7 +435,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = sp2020;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hugo.trashified;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hugo.trashification;
 				PRODUCT_NAME = Trashification;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

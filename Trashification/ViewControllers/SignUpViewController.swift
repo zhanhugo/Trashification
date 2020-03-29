@@ -73,7 +73,6 @@ class SignUpViewController: UIViewController {
             showError(error!)
         }
         else {
-            loggedIn = true
             // Create cleaned versions of the data
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -90,24 +89,35 @@ class SignUpViewController: UIViewController {
                     self.showError("Error creating user")
                 }
                 else {
-
                     // User was created successfully, now store the first name and last name
                     let db = Firestore.firestore()
-                    db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName]) { (error) in
+                    db.collection("users").document(result!.user.uid).setData(["firstName": firstName, "lastName": lastName, "Metal": 0, "Plastic": 0, "Cardboard": 0, "Paper": 0, "Other Trash": 0]) { (error) in
                         if error != nil {
                             // Show error message
                             self.showError("Error saving user data")
                         }
                     }
-
+                    db.collection("users").document(Auth.auth().currentUser!.uid).setData([cat[scan.firstIndex(of: scan.max()!)!]: data[scan.firstIndex(of: scan.max()!)!]], merge: true)
                     // Transition to the home screen
-                    self.transitionToHome()
+                    self.fetchNameData() { name in
+                        userName = name
+                        userEmail = email
+                        let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
+                        loggedIn = true
+                        self.view.window?.rootViewController = userViewController
+                        self.view.window?.makeKeyAndVisible()
+                    }
                 }
-
             }
-
-
-
+        }
+    }
+    
+    func fetchNameData(completion: @escaping (String) -> Void) {
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        docRef.getDocument{(document, error) in
+            let username = (document!.get("firstName") as! String) + " " + (document!.get("lastName") as! String)
+            completion(username)
         }
     }
 
@@ -115,15 +125,6 @@ class SignUpViewController: UIViewController {
 
         errorLabel.text = message
         errorLabel.alpha = 1
-    }
-
-    func transitionToHome() {
-
-        let userViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
-
-        view.window?.rootViewController = userViewController
-        view.window?.makeKeyAndVisible()
-        
     }
     
 }

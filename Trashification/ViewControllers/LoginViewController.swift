@@ -11,6 +11,8 @@ import FirebaseAuth
 import Firebase
 
 class LoginViewController: UIViewController {
+    let db = Firestore.firestore()
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -36,20 +38,31 @@ class LoginViewController: UIViewController {
             
         }
     
-//FIX ME
-//    func fetchData(completion: @escaping (String) -> Void) {
-//                let db = Firestore.firestore()
-//                let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-//                docRef.getDocument{(document, error) in
-//                    guard let name = (document?.get("firstName") as? String) + (document?.get("firstName") as? String) else {
-//                        print("could not get name")
-//                        return
-//                    }
-//                    completion(name)
-//                }
-//            }
-
-        
+    func fetchNameData(completion: @escaping (String) -> Void) {
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        docRef.getDocument{(document, error) in
+            let username = (document!.get("firstName") as! String) + " " + (document!.get("lastName") as! String)
+            completion(username)
+        }
+    }
+    
+    func setData(completion: @escaping ([Double]) -> Void) {
+        var dataArray = [Double]()
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        docRef.getDocument{(document, error) in
+            if let error = error {
+                print(error)
+                completion(dataArray)
+                return
+            }
+            for i in 0...4 {
+                let count = document!.get(cat[i]) as! Double
+                dataArray.append(count)
+            }
+            completion(dataArray)
+        }
+    }
+       
     @IBAction func loginTapped(_ sender: Any) {
         // TODO: Validate Text Fields
 
@@ -65,13 +78,19 @@ class LoginViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }
             else {
-                userEmail = email
-            let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
-            loggedIn = true
-            self.view.window?.rootViewController = userViewController
-            self.view.window?.makeKeyAndVisible()
-                
+                self.fetchNameData() { name in
+                    userName = name
+                    userEmail = email
+                    let userViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.userViewController) as? UserViewController
+                    loggedIn = true
+                    self.setData { dataArray in
+                        data = dataArray
+                        self.view.window?.rootViewController = userViewController
+                        self.view.window?.makeKeyAndVisible()
+                    }
+                }
             }
+        }
     }
 }
-}
+

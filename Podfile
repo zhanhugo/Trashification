@@ -7,6 +7,7 @@ target 'Trashification' do
 
   # Pods for Trashification
 
+	pod 'Charts'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'	
 	pod 'Firebase/Core'
