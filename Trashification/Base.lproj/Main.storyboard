@@ -33,17 +33,24 @@
                                                 <rect key="frame" x="168" y="0.0" width="226" height="197"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOV-WD-7c5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="226" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="226" height="65.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld9-1w-REi">
-                                                        <rect key="frame" x="0.0" y="98.5" width="226" height="98.5"/>
+                                                        <rect key="frame" x="0.0" y="65.5" width="226" height="66"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ru-MD-cGs">
+                                                        <rect key="frame" x="0.0" y="131.5" width="226" height="65.5"/>
+                                                        <state key="normal" title="Logout"/>
+                                                        <connections>
+                                                            <action selector="logoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="icu-bC-cw5"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -83,6 +90,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="f9A-hD-BYh" id="nIE-C6-GzA"/>
                         <outlet property="emailLabel" destination="ld9-1w-REi" id="0zS-ag-Y40"/>
+                        <outlet property="logoutButton" destination="9ru-MD-cGs" id="sCi-L8-vDG"/>
                         <outlet property="nameLabel" destination="jOV-WD-7c5" id="SCO-wa-kpu"/>
                         <outlet property="pieChartView" destination="o9y-Ww-I4f" id="jZt-De-aYs"/>
                         <outlet property="profileImageVIew" destination="h3M-6o-8rg" id="VYD-1N-Rim"/>

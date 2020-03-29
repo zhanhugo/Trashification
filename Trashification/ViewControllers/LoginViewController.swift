@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
             }
             for i in 0...4 {
                 let count = document!.get(cat[i]) as! Double
-                dataArray.append(count)
+                dataArray.append(count + data[i])
             }
             completion(dataArray)
         }
@@ -85,6 +85,7 @@ class LoginViewController: UIViewController {
                     loggedIn = true
                     self.setData { dataArray in
                         data = dataArray
+                        self.db.collection("users").document(Auth.auth().currentUser!.uid).setData([cat[scan.firstIndex(of: scan.max()!)!]: data[scan.firstIndex(of: scan.max()!)!]], merge: true)
                         self.view.window?.rootViewController = userViewController
                         self.view.window?.makeKeyAndVisible()
                     }

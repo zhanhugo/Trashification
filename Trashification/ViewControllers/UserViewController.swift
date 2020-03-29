@@ -41,6 +41,7 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,7 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         cameraButton.isHidden = !loggedIn
         profileImageVIew.isHidden = !loggedIn
         pieChartView.isHidden = !loggedIn
+        logoutButton.isHidden = !loggedIn
         self.cameraButton.layer.cornerRadius = 10
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = .photoLibrary
@@ -66,8 +68,16 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             cameraButton.isHidden = false
             profileImageVIew.isHidden = false
             pieChartView.isHidden = false
+            logoutButton.isHidden = false
         }
 }
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        let viewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.viewController) as? ViewController
+        self.view.window?.rootViewController = viewController
+        self.view.window?.makeKeyAndVisible()
+        data = [0, 0, 0, 0, 0]
+        loggedIn = false
+    }
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
@@ -108,6 +118,7 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         cameraButton.isHidden = true
         profileImageVIew.isHidden = true
         pieChartView.isHidden = true
+        logoutButton.isHidden = true
         for i in 0...4 {
             scan[i] = Double.random(in: 0...1)
         }
