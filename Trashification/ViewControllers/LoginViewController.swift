@@ -35,7 +35,8 @@ class LoginViewController: UIViewController {
             Utilities.styleFilledButton(loginButton)
             
         }
-        
+    
+//FIX ME
 //    func fetchData(completion: @escaping (String) -> Void) {
 //                let db = Firestore.firestore()
 //                let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
@@ -47,7 +48,7 @@ class LoginViewController: UIViewController {
 //                    completion(name)
 //                }
 //            }
-//
+
         
     @IBAction func loginTapped(_ sender: Any) {
         // TODO: Validate Text Fields
